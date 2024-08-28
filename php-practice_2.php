@@ -102,7 +102,6 @@ echo $lastmonth;
 /* 問題2 */
 $today = new DateTime();
 $thatday = new DateTime('1992-04-25');
-$diff = $thatday->diff($today);
-echo 'あの日から' . $diff->days . '日経過しました。';
+echo 'あの日から' . $thatday->diff($today)->days . '日経過しました。';
 
 ?>

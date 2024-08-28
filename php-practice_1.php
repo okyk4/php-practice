@@ -26,11 +26,27 @@ $message = ($age < 18) ? '未成年です。' : '成人です。';
 echo $message;
 
 // Q6 配列
-$kanto = ['茨城県', '群馬県', '埼玉県', '栃木県', '千葉県', '東京都', '神奈川県'];
+$kanto = [
+    '茨城県',
+    '群馬県',
+    '埼玉県',
+    '栃木県',
+    '千葉県',
+    '東京都',
+    '神奈川県'
+];
 echo $kanto[3] . 'と' . $kanto[4] . 'は関東地方の都道府県です。';
 
 // Q7 連想配列-1
-$capital = ['東京都' => '新宿区', '神奈川県' => '横浜市', '千葉県' => '千葉市', '埼玉県' => 'さいたま市', '栃木県' => '宇都宮市', '群馬県' => '前橋市', '茨城県' => '水戸市'];
+$capital = [
+    '東京都' => '新宿区',
+    '神奈川県' => '横浜市',
+    '千葉県' => '千葉市',
+    '埼玉県' => 'さいたま市',
+    '栃木県' => '宇都宮市',
+    '群馬県' => '前橋市',
+    '茨城県' => '水戸市'
+];
 foreach ($capital as $prefecture => $city) {
     echo $city . "\n";
 }
@@ -40,8 +56,6 @@ unset($city);
 foreach ($capital as $prefecture => $city) {
   if ($prefecture === '埼玉県') {
       echo $prefecture . 'の県庁所在地は、' . $city . 'です。';
-  } else {
-  echo '';
   }
 }
 unset($city);
@@ -51,7 +65,15 @@ $capital['愛知県'] = '名古屋市';
 $capital['大阪府'] = '大阪市';
 
 foreach ($capital as $prefecture => $city) {
-  if ($prefecture === '東京都' || $prefecture === '神奈川県' || $prefecture === '千葉県' || $prefecture === '埼玉県' || $prefecture === '栃木県' || $prefecture === '群馬県' || $prefecture === '茨城県') {
+  if (
+    $prefecture === '東京都' ||
+    $prefecture === '神奈川県' ||
+    $prefecture === '千葉県' ||
+    $prefecture === '埼玉県' ||
+    $prefecture === '栃木県' ||
+    $prefecture === '群馬県' ||
+    $prefecture === '茨城県'
+    ) {
       echo $prefecture . 'の県庁所在地は、' . $city . 'です。' . "\n";
   } else {
   echo $prefecture . 'は関東地方ではありません。' . "\n";
@@ -83,28 +105,26 @@ echo $price . '円の商品の税込価格は' . $taxInPrice . '円です。';
 function distinguishNum($num)
 {
    if ($num % 2 === 1) {
-       echo $num . 'は奇数です。' . "\n";
+       return $num . 'は奇数です。' . "\n";
    } else {
-       echo $num . 'は偶数です。' . "\n";
+       return $num . 'は偶数です。' . "\n";
    }
 }
 
-distinguishNum(11);
-distinguishNum(24);
+echo distinguishNum(11);
+echo distinguishNum(24);
 
 // Q13 関数とswitch文
 function evaluateGrade($rank)
 {
     switch ($rank) {
-        case $rank === 'A' || $rank === 'B':
+        case 'A':
+        case 'B':
             return '合格です。' . "\n";
-            break;
-        case $rank === 'C':
+        case 'C':
             return '合格ですが追加課題があります。' . "\n";
-            break;
-        case $rank === 'D':
+        case 'D':
             return '不合格です。' . "\n";
-            break;
         default:
             return '判定不明です。講師に問い合わせてください。' . "\n";
     }
