@@ -37,18 +37,17 @@ $personalInfos = [
 echo $personalInfos[1]['name'] . 'の電話番号は' . $personalInfos[1]['tel'] . 'です。';
 
 /* 問題2 */
-foreach ($personalInfos as $index => $vals) {
-    echo $index + 1 . '番目の' . $vals['name'] . 'のメールアドレスは' . $vals['mail'] . 'で、電話番号は' . $vals['tel'] . 'です。' . "\n";
+foreach ($personalInfos as $index => $info) {
+    echo $index + 1 . '番目の' . $info['name'] . 'のメールアドレスは' . $info['mail'] . 'で、電話番号は' . $info['tel'] . 'です。' . "\n";
 }
-unset($vals);
 
 /* 問題3 */
 $ageList = [25, 30, 18];
 
-foreach ($personalInfos as $index => &$vals) {
-    $vals['age'] = $ageList[$index];
+foreach ($personalInfos as $index => &$info) {
+    $info['age'] = $ageList[$index];
 }
-unset($vals);
+unset($info);
 
 var_dump($personalInfos);
 

@@ -50,7 +50,6 @@ $capital = [
 foreach ($capital as $prefecture => $city) {
     echo $city . "\n";
 }
-unset($city);
 
 // Q8 連想配列-2
 foreach ($capital as $prefecture => $city) {
@@ -58,7 +57,6 @@ foreach ($capital as $prefecture => $city) {
       echo $prefecture . 'の県庁所在地は、' . $city . 'です。';
   }
 }
-unset($city);
 
 // Q9 連想配列-3
 $capital['愛知県'] = '名古屋市';
@@ -79,7 +77,21 @@ foreach ($capital as $prefecture => $city) {
   echo $prefecture . 'は関東地方ではありません。' . "\n";
   }
 }
-unset($city);
+
+/*別解を追記*/
+$capital2 = [
+    '愛知県' => '名古屋市',
+    '大阪府' => '大阪市'
+];
+$capitals = array_merge($capital, $capital2);
+
+foreach ($capitals as $prefecture => $city) {
+    if (in_array($city, $capital)) {
+        echo $prefecture . 'の県庁所在地は、' . $city . 'です。' . "\n";
+    } else {
+        echo $prefecture . 'は関東地方ではありません。' . "\n";
+    }
+}
 
 // Q10 関数-1
 function hello($name)
